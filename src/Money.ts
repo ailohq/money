@@ -53,10 +53,18 @@ export class Money implements MoneyInterface {
     return new Money(0, currency);
   }
 
+  /**
+   * Returns float value of the dollars amount,
+   * e.g. `123.45` for `{ cents: 12345 }`.
+   */
   get dollars(): number {
     return this.value.value;
   }
 
+  /**
+   * Returns int value of the cents amount,
+   * e.g. `12345` for `{ cents: 12345 }`.
+   */
   get cents(): number {
     return this.value.intValue;
   }
