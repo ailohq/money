@@ -130,4 +130,8 @@ export class Money implements MoneyInterface {
 
     return result;
   }
+
+  toString(): string {
+    return this.format();
+  }
 }
