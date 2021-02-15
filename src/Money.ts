@@ -81,7 +81,17 @@ export class Money implements MoneyInterface {
     return this.value.value === 0;
   }
 
-  diff(subtrahend: Money): Money {
+  add(addend: Money): Money {
+    if (this.currency !== addend.currency) {
+      throw new TypeError(
+        "Attempting to compare money of different currencies"
+      );
+    }
+
+    return new Money(addend.value.add(this.value), this.currency);
+  }
+
+  subtract(subtrahend: Money): Money {
     if (this.currency !== subtrahend.currency) {
       throw new TypeError(
         "Attempting to compare money of different currencies"
@@ -89,6 +99,10 @@ export class Money implements MoneyInterface {
     }
 
     return new Money(subtrahend.value.subtract(this.value), this.currency);
+  }
+
+  multiply(multiplier: number): Money {
+    return new Money(this.value.multiply(multiplier), this.currency);
   }
 
   abs(): Money {

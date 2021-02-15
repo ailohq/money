@@ -139,35 +139,67 @@ describe("Money", () => {
     });
   });
 
-  describe("diff", () => {
+  describe("add", () => {
     it("throws an error if currencies are different", () => {
       const m1 = Money.fromCents(123, "AUD");
       const m2 = Money.fromCents(456, "NZD");
 
-      expect(() => m1.diff(m2)).toThrowErrorMatchingInlineSnapshot(
+      expect(() => m1.add(m2)).toThrowErrorMatchingInlineSnapshot(
         `"Attempting to compare money of different currencies"`
       );
     });
 
-    describe("when comparing the same currency", () => {
+    describe("when adding the same currency", () => {
       const m1 = Money.fromCents(100, "AUD");
       const m2 = Money.fromCents(250, "AUD");
 
       it("returns the difference between the two money amounts", () => {
-        const diffFromM1ToM2 = m1.diff(m2);
+        const fromM1ToM2 = m1.add(m2);
+        expect(fromM1ToM2.dollars).toEqual(3.5);
+        expect(fromM1ToM2.currency).toEqual("AUD");
+
+        const fromM2ToM1 = m2.add(m1);
+        expect(fromM2ToM1.dollars).toEqual(3.5);
+        expect(fromM2ToM1.currency).toEqual("AUD");
+      });
+    });
+  });
+
+  describe("subtract", () => {
+    it("throws an error if currencies are different", () => {
+      const m1 = Money.fromCents(123, "AUD");
+      const m2 = Money.fromCents(456, "NZD");
+
+      expect(() => m1.subtract(m2)).toThrowErrorMatchingInlineSnapshot(
+        `"Attempting to compare money of different currencies"`
+      );
+    });
+
+    describe("when subtracting the same currency", () => {
+      const m1 = Money.fromCents(100, "AUD");
+      const m2 = Money.fromCents(250, "AUD");
+
+      it("returns the difference between the two money amounts", () => {
+        const diffFromM1ToM2 = m1.subtract(m2);
         expect(diffFromM1ToM2.dollars).toEqual(1.5);
         expect(diffFromM1ToM2.currency).toEqual("AUD");
 
-        const diffFromM2ToM1 = m2.diff(m1);
+        const diffFromM2ToM1 = m2.subtract(m1);
         expect(diffFromM2ToM1.dollars).toEqual(-1.5);
         expect(diffFromM2ToM1.currency).toEqual("AUD");
       });
 
       it("returns money with zero cents if compared to the same amount", () => {
-        const diffFromM1ToItself = m1.diff(m1);
+        const diffFromM1ToItself = m1.subtract(m1);
         expect(diffFromM1ToItself.dollars).toEqual(0);
         expect(diffFromM1ToItself.currency).toEqual("AUD");
       });
+    });
+  });
+
+  describe("multiply", () => {
+    it("returns multiplyed money", () => {
+      expect(Money.fromCents(3).multiply(2).cents).toEqual(6);
     });
   });
 
