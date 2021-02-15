@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/ailohq/money/compare/v1.1.0...v1.2.0) (2021-02-15)
+
+
+### Features
+
+* Add `.add` `.subtract` `.multiply` methods; remove `.diff` method ([9df41a0](https://github.com/ailohq/money/commit/9df41a0a522ce90121b863ebb9025ae98749971d))
+
 ## [1.1.0](https://github.com/ailohq/money/compare/v1.0.2...v1.1.0) (2021-02-09)
 
 
