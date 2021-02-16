@@ -272,6 +272,40 @@ describe("Money", () => {
     });
   });
 
+  describe("centsOnly", () => {
+    it("returns cent component of Money", () => {
+      const m1 = Money.fromCents(12345, "AUD");
+      expect(m1.centsOnly).toEqual(45);
+    });
+
+    it("returns 0 for 0 cents", () => {
+      const m1 = Money.fromCents(0, "AUD");
+      expect(m1.centsOnly).toEqual(0);
+    });
+
+    it("returns 22 for -5422 cents", () => {
+      const m1 = Money.fromCents(-5422, "AUD");
+      expect(m1.centsOnly).toEqual(22);
+    });
+  });
+
+  describe("dollarsOnly", () => {
+    it("returns dollar component of Money", () => {
+      const m1 = Money.fromCents(12345, "AUD");
+      expect(m1.dollarsOnly).toEqual(123);
+    });
+
+    it("returns 0 dollars for 0 cents", () => {
+      const m1 = Money.fromCents(0, "AUD");
+      expect(m1.dollarsOnly).toEqual(0);
+    });
+
+    it("returns 54 for -5422 cents", () => {
+      const m1 = Money.fromCents(-5422, "AUD");
+      expect(m1.dollarsOnly).toEqual(54);
+    });
+  });
+
   it("`.dollars` returns dollar value of Money", () => {
     const m1 = Money.fromCents(123, "AUD");
     expect(m1.dollars).toEqual(1.23);
