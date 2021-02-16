@@ -62,11 +62,25 @@ export class Money implements MoneyInterface {
   }
 
   /**
+   * Returns only a whole dollar component. 123 for {cents: 12345}
+   */
+  get dollarsOnly(): number {
+    return Math.abs(this.value.dollars());
+  }
+
+  /**
    * Returns int value of the cents amount,
    * e.g. `12345` for `{ cents: 12345 }`.
    */
   get cents(): number {
     return this.value.intValue;
+  }
+
+  /**
+   * Returns only cents component. 45 for {cents: 12345}
+   */
+  get centsOnly(): number {
+    return Math.abs(this.value.cents());
   }
 
   get isPositive(): boolean {
