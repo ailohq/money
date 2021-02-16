@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/ailohq/money/compare/v1.2.0...v1.3.0) (2021-02-16)
+
+
+### Features
+
+* added centsOnly and dollarsOnly methods (NC-107) ([7d64071](https://github.com/ailohq/money/commit/7d640713028809448bd9b2dccdba0bfe7e9b3560))
+
 ## [1.2.0](https://github.com/ailohq/money/compare/v1.1.0...v1.2.0) (2021-02-15)
 
 
