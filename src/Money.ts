@@ -95,24 +95,27 @@ export class Money implements MoneyInterface {
     return this.value.value === 0;
   }
 
-  add(addend: Money): Money {
+  add(addend: MoneyInterface): Money {
     if (this.currency !== addend.currency) {
       throw new TypeError(
         "Attempting to compare money of different currencies"
       );
     }
 
-    return new Money(addend.value.add(this.value), this.currency);
+    return new Money(Money.from(addend).value.add(this.value), this.currency);
   }
 
-  subtract(subtrahend: Money): Money {
+  subtract(subtrahend: MoneyInterface): Money {
     if (this.currency !== subtrahend.currency) {
       throw new TypeError(
         "Attempting to compare money of different currencies"
       );
     }
 
-    return new Money(subtrahend.value.subtract(this.value), this.currency);
+    return new Money(
+      Money.from(subtrahend).value.subtract(this.value),
+      this.currency
+    );
   }
 
   multiply(multiplier: number): Money {
