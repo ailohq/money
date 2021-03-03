@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/ailohq/money/compare/v1.2.0...v1.2.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* Allow for passing `MoneyInterface` as argument to `add` and `subtract` ([653fe9e](https://github.com/ailohq/money/commit/653fe9e23edef02d708ce66ea9ca5927ad2d4c1c))
+
 ## [1.2.0](https://github.com/ailohq/money/compare/v1.1.0...v1.2.0) (2021-02-15)
 
 
