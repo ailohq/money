@@ -135,8 +135,17 @@ export class Money implements MoneyInterface {
     thousandSeparator = ",",
     withTrailingZeros = true,
   }: {
+    /**
+     * @default true
+     */
     symbol?: boolean;
+    /**
+     * @default ","
+     */
     thousandSeparator?: "," | "" | " ";
+    /**
+     * @default true
+     */
     withTrailingZeros?: boolean;
   } = {}): string {
     const result = accounting.formatMoney(this.dollars, {
