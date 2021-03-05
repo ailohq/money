@@ -163,6 +163,17 @@ describe("Money", () => {
         expect(fromM2ToM1.currency).toEqual("AUD");
       });
     });
+
+    describe("when adding MoneyInterface", () => {
+      const m1 = Money.fromCents(100, "AUD");
+      const m2 = { cents: 250 };
+
+      it("returns the difference between the two money amounts", () => {
+        const fromM1ToM2 = m1.add(m2);
+        expect(fromM1ToM2.dollars).toEqual(3.5);
+        expect(fromM1ToM2.currency).toEqual("AUD");
+      });
+    });
   });
 
   describe("subtract", () => {
@@ -193,6 +204,17 @@ describe("Money", () => {
         const diffFromM1ToItself = m1.subtract(m1);
         expect(diffFromM1ToItself.dollars).toEqual(0);
         expect(diffFromM1ToItself.currency).toEqual("AUD");
+      });
+    });
+
+    describe("when subtracting MoneyInterface", () => {
+      const m1 = Money.fromCents(100, "AUD");
+      const m2 = { cents: 250 };
+
+      it("returns the difference between the two money amounts", () => {
+        const diffFromM1ToM2 = m1.subtract(m2);
+        expect(diffFromM1ToM2.dollars).toEqual(1.5);
+        expect(diffFromM1ToM2.currency).toEqual("AUD");
       });
     });
   });

@@ -96,7 +96,7 @@ export class Money implements MoneyInterface {
   }
 
   add(addend: MoneyInterface): Money {
-    if (this.currency !== addend.currency) {
+    if (addend.currency && this.currency !== addend.currency) {
       throw new TypeError(
         "Attempting to compare money of different currencies"
       );
@@ -106,7 +106,7 @@ export class Money implements MoneyInterface {
   }
 
   subtract(subtrahend: MoneyInterface): Money {
-    if (this.currency !== subtrahend.currency) {
+    if (subtrahend.currency && this.currency !== subtrahend.currency) {
       throw new TypeError(
         "Attempting to compare money of different currencies"
       );
