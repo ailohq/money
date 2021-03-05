@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/ailohq/money/compare/v1.4.0...v1.4.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* **Money:** Do not throw error when adding/subtracting MoneyInterface ([f833380](https://github.com/ailohq/money/commit/f83338048c82a00d04e7900f2fb82cd888c00433))
+
 ## [1.4.0](https://github.com/ailohq/money/compare/v1.2.0...v1.4.0) (2021-03-03)
 
 
