@@ -122,6 +122,10 @@ export class Money implements MoneyInterface {
     return new Money(this.value.multiply(multiplier), this.currency);
   }
 
+  divide(multiplier: number): Money {
+    return new Money(this.value.divide(multiplier), this.currency);
+  }
+
   abs(): Money {
     if (this.isPositive || this.isZero) {
       return this;

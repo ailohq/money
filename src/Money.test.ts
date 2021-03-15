@@ -220,8 +220,15 @@ describe("Money", () => {
   });
 
   describe("multiply", () => {
-    it("returns multiplyed money", () => {
+    it("returns multiplied money", () => {
       expect(Money.fromCents(3).multiply(2).cents).toEqual(6);
+    });
+  });
+
+  describe("divide", () => {
+    it("returns divided money", () => {
+      expect(Money.fromCents(30).divide(2).cents).toEqual(15);
+      expect(Money.fromCents(3).divide(2).cents).toEqual(2);
     });
   });
 
