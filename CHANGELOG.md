@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/ailohq/money/compare/v1.4.2...v1.5.0) (2021-03-15)
+
+
+### Features
+
+* Add `Money#divide` method ([6e91566](https://github.com/ailohq/money/commit/6e91566e7c97336728e17010217a3c68789507de))
+
 ### [1.4.2](https://github.com/ailohq/money/compare/v1.4.1...v1.4.2) (2021-03-05)
 
 ### [1.4.1](https://github.com/ailohq/money/compare/v1.4.0...v1.4.1) (2021-03-05)
