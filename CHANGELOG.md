@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/ailohq/money/compare/v1.5.0...v1.6.0) (2021-05-26)
+
+
+### Features
+
+* Add `roundingMode` to `multiply` and `divide` methods ([a7fa266](https://github.com/ailohq/money/commit/a7fa2662fdc1b8e0cff3ecba44bb7e665a5d4ec7))
+
 ## [1.5.0](https://github.com/ailohq/money/compare/v1.4.2...v1.5.0) (2021-03-15)
 
 
