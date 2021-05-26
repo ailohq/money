@@ -118,11 +118,45 @@ export class Money implements MoneyInterface {
     );
   }
 
-  multiply(multiplier: number): Money {
+  multiply(
+    multiplier: number,
+    {
+      roundingMode = "up",
+    }: {
+      /**
+       * @default "up"
+       */
+      roundingMode?: "down" | "up";
+    } = {}
+  ): Money {
+    if (roundingMode === "down") {
+      return Money.fromCents(
+        Math.floor(this.value.cents() * multiplier),
+        this.currency
+      );
+    }
+
     return new Money(this.value.multiply(multiplier), this.currency);
   }
 
-  divide(multiplier: number): Money {
+  divide(
+    multiplier: number,
+    {
+      roundingMode = "up",
+    }: {
+      /**
+       * @default "up"
+       */
+      roundingMode?: "down" | "up";
+    } = {}
+  ): Money {
+    if (roundingMode === "down") {
+      return Money.fromCents(
+        Math.floor(this.value.cents() / multiplier),
+        this.currency
+      );
+    }
+
     return new Money(this.value.divide(multiplier), this.currency);
   }
 

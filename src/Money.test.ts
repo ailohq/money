@@ -223,12 +223,32 @@ describe("Money", () => {
     it("returns multiplied money", () => {
       expect(Money.fromCents(3).multiply(2).cents).toEqual(6);
     });
+
+    it("by default, rounds down to the nearest cent", () => {
+      expect(Money.fromCents(25).multiply(0.02).cents).toEqual(1);
+    });
+
+    it("if roundingMode: 'up' is given, rounds up to the nearest cent", () => {
+      expect(
+        Money.fromCents(25).multiply(0.02, { roundingMode: "down" }).cents
+      ).toEqual(0);
+    });
   });
 
   describe("divide", () => {
     it("returns divided money", () => {
       expect(Money.fromCents(30).divide(2).cents).toEqual(15);
       expect(Money.fromCents(3).divide(2).cents).toEqual(2);
+    });
+
+    it("by default, rounds down to the nearest cent", () => {
+      expect(Money.fromCents(25).divide(50).cents).toEqual(1);
+    });
+
+    it("if roundingMode: 'up' is given, rounds up to the nearest cent", () => {
+      expect(
+        Money.fromCents(25).divide(50, { roundingMode: "down" }).cents
+      ).toEqual(0);
     });
   });
 
