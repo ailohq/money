@@ -226,12 +226,24 @@ describe("Money", () => {
 
     it("by default, rounds down to the nearest cent", () => {
       expect(Money.fromCents(25).multiply(0.02).cents).toEqual(1);
+      expect(Money.fromCents(50).multiply(0.02).cents).toEqual(1);
+      expect(Money.fromCents(75).multiply(0.02).cents).toEqual(2);
+      expect(Money.fromCents(100).multiply(0.02).cents).toEqual(2);
     });
 
     it("if roundingMode: 'up' is given, rounds up to the nearest cent", () => {
       expect(
         Money.fromCents(25).multiply(0.02, { roundingMode: "down" }).cents
       ).toEqual(0);
+      expect(
+        Money.fromCents(50).multiply(0.02, { roundingMode: "down" }).cents
+      ).toEqual(1);
+      expect(
+        Money.fromCents(75).multiply(0.02, { roundingMode: "down" }).cents
+      ).toEqual(1);
+      expect(
+        Money.fromCents(100).multiply(0.02, { roundingMode: "down" }).cents
+      ).toEqual(2);
     });
   });
 
@@ -243,12 +255,24 @@ describe("Money", () => {
 
     it("by default, rounds down to the nearest cent", () => {
       expect(Money.fromCents(25).divide(50).cents).toEqual(1);
+      expect(Money.fromCents(50).divide(50).cents).toEqual(1);
+      expect(Money.fromCents(75).divide(50).cents).toEqual(2);
+      expect(Money.fromCents(100).divide(50).cents).toEqual(2);
     });
 
     it("if roundingMode: 'up' is given, rounds up to the nearest cent", () => {
       expect(
         Money.fromCents(25).divide(50, { roundingMode: "down" }).cents
       ).toEqual(0);
+      expect(
+        Money.fromCents(50).divide(50, { roundingMode: "down" }).cents
+      ).toEqual(1);
+      expect(
+        Money.fromCents(75).divide(50, { roundingMode: "down" }).cents
+      ).toEqual(1);
+      expect(
+        Money.fromCents(100).divide(50, { roundingMode: "down" }).cents
+      ).toEqual(2);
     });
   });
 

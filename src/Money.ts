@@ -131,7 +131,7 @@ export class Money implements MoneyInterface {
   ): Money {
     if (roundingMode === "down") {
       return Money.fromCents(
-        Math.floor(this.value.cents() * multiplier),
+        Math.floor(this.cents * multiplier),
         this.currency
       );
     }
@@ -152,7 +152,7 @@ export class Money implements MoneyInterface {
   ): Money {
     if (roundingMode === "down") {
       return Money.fromCents(
-        Math.floor(this.value.cents() / multiplier),
+        Math.floor(this.cents / multiplier),
         this.currency
       );
     }
